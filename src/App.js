@@ -13,7 +13,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
+  async handleSubmit() {
     // let username = this.state.username;
     // debugger
     // fetch(`https://www.reddit.com/user/kijafa/comments.json`, {
@@ -23,14 +23,22 @@ class App extends Component {
     // })
     // debugger
     // fetch('')
-    fetch('https://www.reddit.com/user/kijafa/comments.json', {
+    // fetch('https://www.reddit.com/user/kijafa/comments.json', {
+    //   method: 'GET'
+    // }).then(response => {
+    //   console.log("Hi")
+    //   // response.json().then(body => {
+    //   //   this.setState({comments: body.data.children})
+    //   // })
+    // }).catch(error => console.log("Errors!"))
+    debugger
+    let response = await fetch('https://www.reddit.com/user/kijafa/comments.json', {
       method: 'GET'
-    }).then(response => {
-      console.log("Hi")
-      // response.json().then(body => {
-      //   this.setState({comments: body.data.children})
-      // })
-    }).catch(error => console.log("Errors!"))
+    })
+    debugger
+    let text = await response.json()
+    console.log(text);
+    debugger
   }
 
   handleInput(e) {
